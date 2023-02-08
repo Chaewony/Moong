@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "743777353010",
+    "project_id": "moong-fa88d",
+    "storage_bucket": "moong-fa88d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743777353010:android:84c577f43529cd5451eb2b",
+        "android_client_info": {
+          "package_name": "com.eustress.moong"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "743777353010-8nibdd6jk9216qb2i1tsua5ganh0q3td.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eustress.moong",
+            "certificate_hash": "90a0c83b60716360902c60822fd935c5aed20585"
+          }
+        },
+        {
+          "client_id": "743777353010-gettgehkddkvdas855t833k0jcckilae.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2eKqc0AB9-sB8AJYDL74v3Yx9RfshGTY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "743777353010-gettgehkddkvdas855t833k0jcckilae.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
