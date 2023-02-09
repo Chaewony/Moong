@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Moong</string>
+    <string name="join"><u>아직 회원이 아니신가요?</u></string>
+    <string name="forgot"><u>ID / PW 찾기</u></string>
 </resources>

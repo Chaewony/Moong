@@ -2,7 +2,9 @@ package com.eustress.moong;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -27,5 +29,10 @@ public class MainActivity extends AppCompatActivity {
         if(currentUser != null){
             currentUser.reload();
         }
+    }
+
+    public void joinClicked(View view){
+        Intent intent = new Intent(this, JoinActivity.class);
+        startActivity(intent);
     }
 }
