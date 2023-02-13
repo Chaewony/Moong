@@ -3,16 +3,190 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="189dp"
-        android:gravity="center_vertical"
-        android:text="회원가입 창"
-        android:textSize="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:padding="16dp"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+            android:layout_marginTop="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <ImageView
+                android:id="@+id/c04_i2_moun"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:background="@drawable/login_moong"
+                android:layout_gravity="center" />
+
+            <ImageView
+                android:id="@+id/ocani3_use_"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:background="@drawable/login_logo"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/TextInputLayout"
+            android:id="@+id/join_edit_name_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="24dp"
+            android:hint="이름"
+            android:textColorHint="#6e706b"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintTextColor="#6e706b"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/join_edit_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/frame_131"
+                android:textColorHint="#6e706b"
+                android:paddingLeft="8dp"
+                android:paddingRight="201dp"
+                android:paddingVertical="8dp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/TextInputLayout"
+            android:id="@+id/join_edit_birth_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="24dp"
+            android:hint="생년월일"
+            android:textColorHint="#6e706b"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintTextColor="#6e706b">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/join_edit_birth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/frame_131"
+                android:textColorHint="#6e706b"
+                android:paddingLeft="8dp"
+                android:paddingRight="201dp"
+                android:paddingVertical="8dp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/TextInputLayout"
+            android:id="@+id/join_edit_email_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="24dp"
+            android:hint="E-Mail"
+            android:textColorHint="#6e706b"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintTextColor="#6e706b">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/join_edit_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/frame_131"
+                android:textColorHint="#6e706b"
+                android:paddingLeft="8dp"
+                android:paddingRight="201dp"
+                android:paddingVertical="8dp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/TextInputLayout"
+            android:id="@+id/join_edit_pw_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="24dp"
+            android:hint="PW"
+            android:textColorHint="#6e706b"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintTextColor="#6e706b">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/join_edit_pw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/frame_131"
+                android:textColorHint="#6e706b"
+                android:paddingLeft="8dp"
+                android:paddingRight="201dp"
+                android:paddingVertical="8dp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/TextInputLayout"
+            android:id="@+id/join_edit_pwCheck_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="24dp"
+            android:hint="PW Check"
+            android:textColorHint="#6e706b"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintTextColor="#6e706b">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/join_edit_pwCheck"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/frame_131"
+                android:textColorHint="#6e706b"
+                android:paddingLeft="8dp"
+                android:paddingRight="201dp"
+                android:paddingVertical="8dp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/join_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="가입 완료"
+            android:textColor="@color/white"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textAllCaps="false"
+            android:background="@drawable/shape_green_box">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
