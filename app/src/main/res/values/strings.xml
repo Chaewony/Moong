@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">Moong</string>
-    <string name="join"><u>아직 회원이 아니신가요?</u></string>
+    <string name="email_join"><u>이메일로 시작하기</u></string>
+    <string name="google_join"><u>구글 아이디로 시작하기</u></string>
     <string name="forgot"><u>ID / PW 찾기</u></string>
     <string name="join_wrong_email"><u>올바른 이메일 형식이 아닙니다</u></string>
     <string name="join_wrong_pw"><u>비밀번호는 6자리 이상 20자리 이하여야 합니다</u></string>
     <string name="join_wrong_pwCheck"><u>비밀번호가 다릅니다</u></string>
+
 </resources>

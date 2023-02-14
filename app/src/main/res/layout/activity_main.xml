@@ -100,13 +100,33 @@
             android:layout_gravity="center">
 
             <TextView
-                android:id="@+id/join"
+                android:id="@+id/email_join"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:text="@string/join"
-                android:onClick="joinClicked"
+                android:text="@string/email_join"
+                android:onClick="emailJoinClicked"
+                android:clickable="true"
+                android:layout_marginHorizontal="10dp"
+                android:textSize="9sp"
+
+                android:fontFamily="@font/pretendard_medium"
+                android:textStyle="normal"
+                android:textColor="#97000000"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="4.5sp"
+                android:gravity="center_horizontal"
+                />
+
+            <TextView
+                android:id="@+id/google_join"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="@string/google_join"
+                android:onClick="googleJoinClicked"
                 android:clickable="true"
                 android:layout_marginHorizontal="10dp"
                 android:textSize="9sp"

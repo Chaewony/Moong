@@ -27,13 +27,9 @@
                 android:value="" />
         </activity>
 
-        <activity android:name=".JoinActivity" android:parentActivityName=".MainActivity">
-
-        </activity>
-
-        <activity android:name=".CloudActivity" android:parentActivityName=".MainActivity">
-
-        </activity>
+        <activity android:name=".JoinActivity" android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".GoogleJoinActivity" android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".CloudActivity" android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>

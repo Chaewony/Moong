@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {//성공했을때
+                                    //화면전환
                                     Intent intent = new Intent(MainActivity.this, CloudActivity.class);
                                     startActivity(intent);
                                 } else {//실패했을때
@@ -55,20 +56,22 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        // 활동 초기화시 사용자가 현재 로그인되어 있는지 확인
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            currentUser.reload();
+
+        //로그아웃 하지 않으면 계속 로그인 되어있기
+        if (mAuth.getCurrentUser() != null) {
+            Intent intent = new Intent(getApplication(), CloudActivity.class);
+            startActivity(intent);
+            finish();
         }
     }
 
-    public void joinClicked(View view){
+    public void emailJoinClicked(View view){
         Intent intent = new Intent(this, JoinActivity.class);
+        startActivity(intent);
+    }
+
+    public void googleJoinClicked(View view){
+        Intent intent = new Intent(this, GoogleJoinActivity.class);
         startActivity(intent);
     }
 }
