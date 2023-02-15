@@ -63,6 +63,7 @@
                 android:paddingLeft="8dp"
                 android:paddingRight="201dp"
                 android:paddingVertical="8dp"
+                android:visibility="gone"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,6 +91,7 @@
                 android:paddingLeft="8dp"
                 android:paddingRight="201dp"
                 android:paddingVertical="8dp"
+                android:visibility="gone"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -117,6 +119,8 @@
                 android:letterSpacing="-0.02"
                 android:lineSpacingExtra="4.5sp"
                 android:gravity="center_horizontal"
+
+                android:visibility="gone"
                 />
 
             <TextView
@@ -137,6 +141,7 @@
                 android:letterSpacing="-0.02"
                 android:lineSpacingExtra="4.5sp"
                 android:gravity="center_horizontal"
+
                 />
 
             <TextView
@@ -156,17 +161,33 @@
                 android:letterSpacing="-0.02"
                 android:lineSpacingExtra="4.5sp"
                 android:gravity="center_horizontal"
+                android:visibility="gone"
                 />
 
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:visibility="gone"
             android:id="@+id/login_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:text="Log-In"
+            android:textColor="@color/white"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textAllCaps="false"
+            android:background="@drawable/shape_green_box">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/anonymous_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Moong 시작하기"
             android:textColor="@color/white"
             android:fontFamily="@font/pretendard_semibold"
             android:textAllCaps="false"

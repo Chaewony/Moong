@@ -4,6 +4,7 @@ public class Users {
     //변수 선언
     private String m_birth;
     private String m_name;
+    private String m_email;
 
     public Users(){}
     //여기서부터 get,set 함수를 사용하는데 이부분을 통해 값을 가져옴
@@ -21,6 +22,14 @@ public class Users {
 
     public void setBirth(String birth) {
         this.m_birth = birth;
+    }
+
+    public String getEmail() {
+        return m_email;
+    }
+
+    public void setEmail(String email) {
+        this.m_email = email;
     }
 
     //이거는 그룹을 생성할때 사용하는 부분
