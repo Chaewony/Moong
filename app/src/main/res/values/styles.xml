@@ -31,4 +31,9 @@
 		<item name="cornerSizeBottomRight">4dp</item>
 	</style>
 
+	<style name="TabText" parent="TextAppearance.Design.Tab">
+		<item name="fontFamily">@font/pretendard_medium</item>
+		<item name="android:textSize">12dp</item>
+	</style>
+
 </resources>

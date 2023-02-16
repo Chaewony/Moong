@@ -33,49 +33,53 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button login;
-    private Button anonymous;
-    private com.google.android.material.textfield.TextInputEditText email_main;
-    private com.google.android.material.textfield.TextInputEditText pwd_main;
-    private FirebaseAuth mAuth;
-
-    GoogleSignInClient googleSignInClient;
+    //변수 선언
+    private Button login;// 로그인 버튼
+    private com.google.android.material.textfield.TextInputEditText email_main; // 로그인 시 이메일 작성하는 부분
+    private com.google.android.material.textfield.TextInputEditText pwd_main;   // 로그인 시 비밀번호 작성하는 부분
+    private Button anonymous;                                                   // Moong 시작하기(익명으로 로그인하기) 버튼
+    private FirebaseAuth mAuth;                                                 // Firebase Auth 인스턴스
+    private GoogleSignInClient googleSignInClient;                              // 구글 인증 클라이언트
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Initialize Firebase Auth
+
+        // 변수 초기화
+        login = (Button) findViewById(R.id.login_btn);
+        email_main = (com.google.android.material.textfield.TextInputEditText) findViewById(R.id.edit_id);
+        pwd_main = (com.google.android.material.textfield.TextInputEditText) findViewById(R.id.edit_pw);
+        anonymous = (Button) findViewById(R.id.anonymous_btn);
         mAuth = FirebaseAuth.getInstance();
 
+        // 구글 로그인 탭을 앱에 통합
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken("743777353010-fu63lvc3touji7lr9k8alvdmmbijdmm5.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
 
-        // Initialize sign in client
+        // 구글 인증 클라이언트 초기화
         googleSignInClient = GoogleSignIn.getClient(MainActivity.this, googleSignInOptions);
 
-        login = (Button) findViewById(R.id.login_btn);
-        anonymous = (Button) findViewById(R.id.anonymous_btn);
-        email_main = (com.google.android.material.textfield.TextInputEditText) findViewById(R.id.edit_id);
-        pwd_main = (com.google.android.material.textfield.TextInputEditText) findViewById(R.id.edit_pw);
-
+        //로그인 버튼 관련 이벤트 감지
         login.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String email = email_main.getText().toString().trim();
-                String pwd = pwd_main.getText().toString().trim();
-                //String형 변수 email.pwd(edittext에서 받오는 값)으로 로그인하는것
+            public void onClick(View v) { //로그인 버튼 눌렸을 때
+                String email = email_main.getText().toString().trim(); //email text field에 있는 text 가져오기
+                String pwd = pwd_main.getText().toString().trim();     //password text field에 있는 text 가져오기
+
+                //이메일과 비밀번호로 앱에 로그인
                 mAuth.signInWithEmailAndPassword(email, pwd)
                         .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {//성공했을때
-                                    //화면전환
+                                    //Cloud Activity로 화면전환
                                     Intent intent = new Intent(MainActivity.this, CloudActivity.class);
                                     startActivity(intent);
                                 } else {//실패했을때
+                                    //결과 팝업
                                     Toast.makeText(MainActivity.this, "로그인 오류", Toast.LENGTH_SHORT).show();
                                 }
                             }
@@ -84,26 +88,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Moong 시작하기(익명으로 로그인하기) 버튼 관련 이벤트 감지
         anonymous.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //버튼이 눌렸을 때
+                //익명으로 로그인
                 mAuth.signInAnonymously()
                         .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
+                                if (task.isSuccessful()) {//성공했을때
                                     // Sign in success, update UI with the signed-in user's information
-                                    Log.d(TAG, "signInAnonymously:success");
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    
+                                    // Log.d(TAG, "signInAnonymously:success"); //로그 찍기
+
                                     //기본 데이터베이스 생성
+                                    FirebaseUser user = mAuth.getCurrentUser();
                                     String uid = user.getUid();
                                     HashMap<Object,String> hashMap = new HashMap<>();
 
+                                    //uid와 name 정보
                                     hashMap.put("uid",uid);
                                     hashMap.put("name", "익명의 뭉티");
 
-                                    //Users 산하에 uid 넣고, uid 산하에 위에서 만든 해시맵 넣기
+                                    //Users 산하에 uid 넣고, uid 산하에 위에서 만든 해시맵(uid와 name 정보) 넣기
                                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                                     DatabaseReference reference = database.getInstance().getReference().child("Users");
                                     reference.child(uid).setValue(hashMap);
@@ -111,9 +118,12 @@ public class MainActivity extends AppCompatActivity {
                                     //화면전환
                                     Intent intent = new Intent(MainActivity.this, CloudActivity.class);
                                     startActivity(intent);
-                                } else {
+
+                                } else {//실패했을때
                                     // If sign in fails, display a message to the user.
-                                    Log.w(TAG, "signInAnonymously:failure", task.getException());
+                                    // Log.w(TAG, "signInAnonymously:failure", task.getException());
+
+                                    //결과 팝업
                                     Toast.makeText(MainActivity.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
                                 }
@@ -124,9 +134,9 @@ public class MainActivity extends AppCompatActivity {
 
         //로그아웃 하지 않으면 계속 로그인 되어있기
         if (mAuth.getCurrentUser() != null) {
-            //Intent intent = new Intent(getApplication(), CloudActivity.class);
-            //startActivity(intent);
-            //finish();
+            /*Intent intent = new Intent(getApplication(), CloudActivity.class);
+            startActivity(intent);
+            finish();*/
         }
     }
 

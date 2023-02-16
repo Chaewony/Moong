@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="cursor_green">#a1d153</color>
+    <color name="button_brown">#EAE5E0</color>
+    <color name="button_pressed_brown">#BAAA9B</color>
 </resources>

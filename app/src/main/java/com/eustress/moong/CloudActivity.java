@@ -2,9 +2,11 @@ package com.eustress.moong;
 
 import static android.content.ContentValues.TAG;
 
+import android.animation.ObjectAnimator;
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,19 +17,17 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-import com.google.android.gms.auth.api.identity.BeginSignInRequest;
-import com.google.android.gms.auth.api.identity.Identity;
-import com.google.android.gms.auth.api.identity.SignInClient;
-import com.google.android.gms.auth.api.identity.SignInCredential;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,7 +39,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 public class CloudActivity extends AppCompatActivity {
     private TextView uid_text;
@@ -48,12 +48,16 @@ public class CloudActivity extends AppCompatActivity {
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
     Button btnRevoke, btnLogout, btnBackup, btnRename;
     EditText edtRename;
-
     private long backKeyPressedTime=0;
-
     GoogleSignInClient googleSignInClient;
-
     String userUid;
+
+    private FloatingActionButton fabMain;
+    private FloatingActionButton fabCamera;
+    private FloatingActionButton fabEdit;
+
+    // 플로팅버튼 상태
+    private boolean fabMain_status = false;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -62,12 +66,39 @@ public class CloudActivity extends AppCompatActivity {
         
         uid_text = (TextView) findViewById(R.id.textViewUID);
         mAuth = FirebaseAuth.getInstance();
-
         btnLogout = (Button)findViewById(R.id.btn_logout);
         btnRevoke = (Button)findViewById(R.id.btn_revoke);
         btnBackup = (Button)findViewById(R.id.btn_backup);
         btnRename = (Button)findViewById(R.id.btn_name);
         edtRename = (EditText)findViewById(R.id.edt_name);
+
+        fabMain = findViewById(R.id.fabMain);
+        fabCamera = findViewById(R.id.fabCamera);
+        fabEdit = findViewById(R.id.fabEdit);
+
+        // 메인플로팅 버튼 클릭
+        fabMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toggleFab();
+
+            }
+        });
+        // 카메라 플로팅 버튼 클릭
+        fabCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(CloudActivity.this, "카메라 버튼 클릭", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // 수정 플로팅 버튼 클릭
+        fabEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(CloudActivity.this, "수정 버튼 클릭", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         //로그인한 유저 정보 가져오기
         final FirebaseUser user = mAuth.getCurrentUser();
@@ -255,5 +286,31 @@ public class CloudActivity extends AppCompatActivity {
             finish();
         }
     }
+
+    // 플로팅 액션 버튼 클릭시 애니메이션 효과
+    public void toggleFab() {
+        if(fabMain_status) {
+            // 플로팅 액션 버튼 닫기
+            // 애니메이션 추가
+            ObjectAnimator fc_animation = ObjectAnimator.ofFloat(fabCamera, "translationY", 0f);
+            fc_animation.start();
+            ObjectAnimator fe_animation = ObjectAnimator.ofFloat(fabEdit, "translationY", 0f);
+            fe_animation.start();
+            // 메인 플로팅 이미지 변경
+            fabMain.setImageResource(R.drawable.ic_home_pressed);
+
+        }else {
+            // 플로팅 액션 버튼 열기
+            ObjectAnimator fc_animation = ObjectAnimator.ofFloat(fabCamera, "translationY", -200f);
+            fc_animation.start();
+            ObjectAnimator fe_animation = ObjectAnimator.ofFloat(fabEdit, "translationY", -400f);
+            fe_animation.start();
+            // 메인 플로팅 이미지 변경
+            fabMain.setImageResource(R.drawable.ic_home_pressed);
+        }
+        // 플로팅 버튼 상태 변경
+        fabMain_status = !fabMain_status;
+    }
+
 }
 
