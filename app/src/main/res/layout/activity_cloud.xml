@@ -79,26 +79,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_button"
+        android:src="@drawable/ic_union"
         app:fabSize="normal"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/button_unpressed_brown"
         app:layout_constraintTop_toTopOf="@id/fabMain"
         app:layout_constraintBottom_toBottomOf="@id/fabMain"
         app:layout_constraintStart_toStartOf="@id/fabMain"
-        app:layout_constraintEnd_toEndOf="@id/fabMain"/>
+        app:layout_constraintEnd_toEndOf="@id/fabMain"
+        app:tint="@null"
+        app:borderWidth="0dp"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabEdit"
+        android:id="@+id/fabDiary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:src="@drawable/floating_menu"
+        android:src="@drawable/ic_union"
         app:fabSize="normal"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/button_unpressed_brown"
         app:layout_constraintTop_toTopOf="@id/fabMain"
         app:layout_constraintBottom_toBottomOf="@id/fabMain"
         app:layout_constraintStart_toStartOf="@id/fabMain"
-        app:layout_constraintEnd_toEndOf="@id/fabMain"/>
+        app:layout_constraintEnd_toEndOf="@id/fabMain"
+        app:tint="@null"
+        app:borderWidth="0dp"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabMain"
@@ -108,7 +112,11 @@
         android:backgroundTint="@color/button_brown"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_union"
+        app:tint="@null"
+        app:borderWidth="0dp"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

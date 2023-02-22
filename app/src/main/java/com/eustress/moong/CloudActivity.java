@@ -5,6 +5,8 @@ import static android.content.ContentValues.TAG;
 import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -54,7 +56,7 @@ public class CloudActivity extends AppCompatActivity {
 
     private FloatingActionButton fabMain;
     private FloatingActionButton fabCamera;
-    private FloatingActionButton fabEdit;
+    private FloatingActionButton fabDiary;
 
     // 플로팅버튼 상태
     private boolean fabMain_status = false;
@@ -74,7 +76,7 @@ public class CloudActivity extends AppCompatActivity {
 
         fabMain = findViewById(R.id.fabMain);
         fabCamera = findViewById(R.id.fabCamera);
-        fabEdit = findViewById(R.id.fabEdit);
+        fabDiary = findViewById(R.id.fabDiary);
 
         // 메인플로팅 버튼 클릭
         fabMain.setOnClickListener(new View.OnClickListener() {
@@ -92,11 +94,11 @@ public class CloudActivity extends AppCompatActivity {
             }
         });
 
-        // 수정 플로팅 버튼 클릭
-        fabEdit.setOnClickListener(new View.OnClickListener() {
+        // 다이어리 플로팅 버튼 클릭
+        fabDiary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(CloudActivity.this, "수정 버튼 클릭", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CloudActivity.this, "다이어리 버튼 클릭", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -294,16 +296,16 @@ public class CloudActivity extends AppCompatActivity {
             // 애니메이션 추가
             ObjectAnimator fc_animation = ObjectAnimator.ofFloat(fabCamera, "translationY", 0f);
             fc_animation.start();
-            ObjectAnimator fe_animation = ObjectAnimator.ofFloat(fabEdit, "translationY", 0f);
+            ObjectAnimator fe_animation = ObjectAnimator.ofFloat(fabDiary, "translationY", 0f);
             fe_animation.start();
             // 메인 플로팅 이미지 변경
-            fabMain.setImageResource(R.drawable.ic_home_pressed);
+            fabMain.setImageResource(R.drawable.ic_home);
 
         }else {
             // 플로팅 액션 버튼 열기
             ObjectAnimator fc_animation = ObjectAnimator.ofFloat(fabCamera, "translationY", -200f);
             fc_animation.start();
-            ObjectAnimator fe_animation = ObjectAnimator.ofFloat(fabEdit, "translationY", -400f);
+            ObjectAnimator fe_animation = ObjectAnimator.ofFloat(fabDiary, "translationY", -400f);
             fe_animation.start();
             // 메인 플로팅 이미지 변경
             fabMain.setImageResource(R.drawable.ic_home_pressed);
