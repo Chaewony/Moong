@@ -99,6 +99,8 @@ public class CloudActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(CloudActivity.this, "다이어리 버튼 클릭", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(CloudActivity.this, DiaryActivity.class);
+                startActivity(intent);
             }
         });
 

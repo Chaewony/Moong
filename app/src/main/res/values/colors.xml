@@ -12,4 +12,6 @@
     <color name="button_unpressed_brown">#EAE5E0</color>
     <color name="background">#FDFCFB</color>
     <color name="status_bar">#D9D9D9</color>
+    <color name="tab">#A28A75</color>
+    <color name="tab_text">#2F2923</color>
 </resources>

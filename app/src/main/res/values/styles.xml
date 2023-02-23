@@ -32,8 +32,9 @@
 	</style>
 
 	<style name="TabText" parent="TextAppearance.Design.Tab">
-		<item name="fontFamily">@font/pretendard_medium</item>
-		<item name="android:textSize">12dp</item>
+		<item name="fontFamily">@font/nanum_square_round_bold</item>
+		<item name="android:textSize">14sp</item>
+		<item name="textAllCaps">false</item>
 	</style>
 
 	<style name="FloatingActionButtonStyle" parent="Widget.Design.FloatingActionButton">
@@ -47,5 +48,6 @@
 		<item name="cornerFamilyBottomLeft">rounded</item>
 		<item name="cornerFamilyBottomRight">rounded</item>
 	</style>
+
 
 </resources>
