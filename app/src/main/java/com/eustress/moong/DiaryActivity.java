@@ -2,6 +2,7 @@ package com.eustress.moong;
 
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,7 +14,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.material.tabs.TabLayout;
 
-public class DiaryActivity extends FragmentActivity {
+public class DiaryActivity extends AppCompatActivity {
     TabLayout tabs;
 
     EmotionCloudFragment fragment1;
