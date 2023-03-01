@@ -4,13 +4,79 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
+    <com.google.android.material.slider.Slider
+        android:id="@+id/discreteSlider"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="308dp"
-        android:text="Display 1"
-        android:textSize="40sp"
+        android:layout_marginTop="300dp"
+        android:stepSize="10.0"
+        android:value="20.0"
+        android:valueFrom="0.0"
+        android:valueTo="50.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:thumbColor="#FAF9F7"
+        app:thumbRadius="5dp"
+
+        app:tickColorActive="#F1B47D"
+        app:tickColorInactive="#FAF9F7"
+
+        app:trackColorActive="#F1B47D"
+        app:trackColorInactive="#D9D9D9"
+
+        app:trackHeight="20dp" />
+
+    <ImageView
+        android:id="@+id/yellowCloud"
+        android:layout_width="48dp"
+        android:layout_height="48.8dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="184dp"
+        android:background="@drawable/ic_cloud"
+        android:backgroundTint="@color/yellow_cloud"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+    <ImageView
+        android:id="@+id/orangeCloud"
+        android:layout_width="48dp"
+        android:layout_height="48.8dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="184dp"
+        android:background="@drawable/ic_cloud"
+        android:backgroundTint="@color/orange_cloud"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+    <ImageView
+        android:id="@+id/pinkCloud"
+        android:layout_width="48dp"
+        android:layout_height="48.8dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="184dp"
+        android:background="@drawable/ic_cloud"
+        android:backgroundTint="@color/pink_cloud"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/makeCloud_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="396dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/nanum_square_round_bold"
+        android:text="구름 생성"
+        android:textAllCaps="false"
+        android:textColor="#46413B"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
