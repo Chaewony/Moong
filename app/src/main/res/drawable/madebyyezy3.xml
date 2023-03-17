@@ -10,4 +10,14 @@
                 android:type="radial" />
         </shape>
     </item>
+    <item>
+        <shape>
+            <gradient
+                android:centerX="0"
+                android:centerY="0"
+                android:gradientRadius="500dp"
+                android:startColor="#fbe271"
+                android:type="radial" />
+        </shape>
+    </item>
 </selector>
