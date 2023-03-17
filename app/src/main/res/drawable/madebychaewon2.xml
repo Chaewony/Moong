@@ -1,24 +1,4 @@
-<!-- drawable/button.xml -->
-<vector
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:aapt="http://schemas.android.com/aapt"
-    android:width="240dp"
-    android:height="36dp"
-    android:viewportWidth="240"
-    android:viewportHeight="36"
-    >
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group>
-
-        <clip-path
-            android:pathData="M10 0H230C235.523 0 240 4.47715 240 10V26C240 31.5228 235.523 36 230 36H10C4.47715 36 0 31.5228 0 26V10C0 4.47715 4.47715 0 10 0Z"
-            />
-
-        <path
-            android:pathData="M0 0V36H240V0"
-            android:fillColor="#EAE5E0"
-            />
-
-    </group>
-
-</vector>
+</selector>
