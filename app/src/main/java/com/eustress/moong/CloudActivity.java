@@ -40,6 +40,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.shrikanthravi.collapsiblecalendarview.data.Day;
+import com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar;
 
 import java.util.ArrayList;
 
@@ -61,6 +63,8 @@ public class CloudActivity extends AppCompatActivity {
     // 플로팅버튼 상태
     private boolean fabMain_status = false;
 
+    private CollapsibleCalendar collapsibleCalendar;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +81,8 @@ public class CloudActivity extends AppCompatActivity {
         fabMain = findViewById(R.id.fabMain);
         fabCamera = findViewById(R.id.fabCamera);
         fabDiary = findViewById(R.id.fabDiary);
+
+        collapsibleCalendar = findViewById(R.id.calendarView123);
 
         // 메인플로팅 버튼 클릭
         fabMain.setOnClickListener(new View.OnClickListener() {
@@ -151,6 +157,39 @@ public class CloudActivity extends AppCompatActivity {
                 renameUser(user.getUid(),edtRename.getText().toString());
             }
 
+        });
+
+        //캘린더 관련 코드
+        collapsibleCalendar.setCalendarListener(new CollapsibleCalendar.CalendarListener() {
+            @Override
+            public void onDaySelect() {
+                Day day = collapsibleCalendar.getSelectedDay();
+                Log.i(getClass().getName(), "Selected Day: "
+                        + day.getYear() + "/" + (day.getMonth() + 1) + "/" + day.getDay());
+
+                Toast.makeText(CloudActivity.this, "Selected Day: "
+                        + day.getYear() + "/" + (day.getMonth() + 1) + "/" + day.getDay(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onItemClick(View view) {
+
+            }
+
+            @Override
+            public void onDataUpdate() {
+
+            }
+
+            @Override
+            public void onMonthChange() {
+
+            }
+
+            @Override
+            public void onWeekChange(int i) {
+
+            }
         });
     }
 

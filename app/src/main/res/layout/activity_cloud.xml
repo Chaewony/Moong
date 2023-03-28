@@ -9,8 +9,8 @@
         android:id="@+id/textViewUID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="168dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="464dp"
         android:text="TextView"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,8 +20,8 @@
         android:id="@+id/edt_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="528dp"
         android:text="이름 변경"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,18 +32,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="196dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="528dp"
         android:onClick="signOut"
         android:text="이름 변경"
         app:layout_constraintStart_toStartOf="@+id/btn_logout"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
         android:id="@+id/btn_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginStart="16dp"
         android:onClick="signOut"
         android:text="로그아웃"
         app:layout_constraintBaseline_toBaselineOf="@+id/btn_revoke"
@@ -54,8 +56,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="388dp"
         android:onClick="revokeAccess"
         android:text="회원탈퇴"
         app:layout_constraintStart_toStartOf="@+id/btn_logout"
@@ -66,13 +68,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="196dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="252dp"
+        android:layout_marginTop="388dp"
         android:onClick="revokeAccess"
         android:text="데이터 백업하기"
         app:layout_constraintStart_toStartOf="@+id/btn_logout"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabCamera"
@@ -117,6 +118,15 @@
         app:tint="@null"
         app:borderWidth="0dp"
         />
+
+    <com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar
+        android:id="@+id/calendarView123"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"></com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
