@@ -3,7 +3,7 @@ package com.eustress.moong;
 public class Users {
     //변수 선언
     private String m_birth;
-    private String m_name;
+    private String m_name = "이름 생성 안됨";
     private String m_email;
 
     public Users(){}
