@@ -44,6 +44,7 @@ import com.shrikanthravi.collapsiblecalendarview.data.Day;
 import com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CloudActivity extends AppCompatActivity {
     private TextView uid_text;
@@ -218,8 +219,9 @@ public class CloudActivity extends AppCompatActivity {
         databaseReference.child("Users").child(userId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Users user = snapshot.getValue(Users.class);
-                uid_text.setText("이름: " + user.getName());
+                Users userInstance = snapshot.getValue(Users.class); //유저 클래스
+                //'java.lang.String com.eustress.moong.Users.getName()' on a null object reference
+                uid_text.setText("이름: " + userInstance.getName());
             }
 
             @Override
